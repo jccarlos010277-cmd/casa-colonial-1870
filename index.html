@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lienys - Carteras y Accesorios</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Velora | Catálogo Online de Prendas y Artículos</title>
+    <meta name="description" content="Descubre las mejores prendas y artículos en Velora. Carteras, ropa y accesorios con estilo. Compra fácil y segura.">
+    <meta name="keywords" content="carteras, ropa, moda, accesorios, tienda online, velora, comprar ropa, prendas">
+    <meta name="author" content="Velora">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/HL23TTq8/cartera_1.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Fuentes atractivas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary: #D4AF37; /* Oro para lujo */
-            --secondary: #8B4513; /* Marrón para elegancia */
-            --accent: #C41E3A; /* Rojo para urgencia */
-            --light: #F5F5DC; /* Beige claro */
-            --dark: #2C2C2C; /* Casi negro */
-            --text: #333333;
-            --success: #4CAF50;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Poppins', sans-serif;
+            --primary-color: #8a4baf; /* Púrpura elegante */
+            --secondary-color: #ff7bac; /* Rosa vibrante */
+            --accent-color: #ffb347; /* Naranja cálido */
+            --dark-color: #2d2d3a; /* Gris oscuro */
+            --light-color: #f8f5ff; /* Lila claro */
+            --text-color: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
         
         * {
@@ -28,921 +43,859 @@
         }
         
         body {
-            font-family: var(--font-body);
-            color: var(--text);
-            background-color: #fefefe;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--white);
             overflow-x: hidden;
         }
         
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 15px 0;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 28px;
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
             font-weight: 600;
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
         }
         
-        .logo i {
-            color: var(--primary);
-            margin-right: 10px;
+        /* Efectos de neuro-marketing */
+        .neuro-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
         }
         
-        nav ul {
-            display: flex;
-            list-style: none;
+        .neuro-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
         
-        nav ul li {
-            margin-left: 25px;
+        .pulse-animation {
+            animation: pulse 2s infinite;
         }
         
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .shine-effect {
             position: relative;
+            overflow: hidden;
         }
         
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-        
-        nav ul li a::after {
+        .shine-effect::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+            transition: var(--transition);
         }
         
-        nav ul li a:hover::after {
-            width: 100%;
+        .shine-effect:hover::after {
+            left: 120%;
         }
         
-        .cart-icon {
+        /* Banner dinámico */
+        .dynamic-banner {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 15px 0;
+            overflow: hidden;
             position: relative;
-            font-size: 20px;
+        }
+        
+        .banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            animation: scrollBanner 30s linear infinite;
+        }
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Estilos para botones - Fomentan la acción */
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(138, 75, 175, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(138, 75, 175, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        /* Efecto de confianza */
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(138, 75, 175, 0.1);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+        
+        /* Efectos de scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Contador de productos vendidos */
+        .counter {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: inline-block;
+        }
+        
+        /* Estilos para imágenes de productos */
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        /* Estilos para el carrito */
+        .cart-indicator {
+            position: relative;
+            display: inline-block;
         }
         
         .cart-count {
             position: absolute;
             top: -8px;
             right: -8px;
-            background-color: var(--accent);
+            background: var(--accent-color);
             color: white;
-            font-size: 12px;
-            width: 18px;
-            height: 18px;
             border-radius: 50%;
+            width: 22px;
+            height: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        /* Banner dinámico */
-        .banner {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
-            color: white;
-            padding: 60px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .banner-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .banner-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 20px;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .banner-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-            animation: fadeInRight 1s ease-out;
-        }
-        
-        .banner h1 {
-            font-family: var(--font-heading);
-            font-size: 42px;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-        
-        .banner p {
-            font-size: 18px;
-            margin-bottom: 25px;
-            max-width: 500px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-        
-        .cta-button:hover {
-            background-color: #c19a2b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-        }
-        
-        .banner-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Sección de productos */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 40px;
-            font-family: var(--font-heading);
-            font-size: 36px;
-            color: var(--secondary);
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .product-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .product-image {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--accent);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: bold;
         }
         
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .product-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-            height: 60px;
-            overflow: hidden;
-        }
-        
-        .product-price {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .product-buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            flex: 1;
-            margin-right: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .btn-whatsapp i {
-            margin-right: 8px;
-        }
-        
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-        }
-        
-        .btn-details {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            flex: 1;
-        }
-        
-        .btn-details:hover {
-            background-color: #6b3410;
-        }
-        
-        /* Sección promocional */
-        .promo-section {
-            background: linear-gradient(to right, var(--light) 0%, #f8f8f8 100%);
-            padding: 60px 0;
-            margin: 40px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .promo-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .promo-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 40px;
-        }
-        
-        .promo-text h2 {
-            font-family: var(--font-heading);
-            font-size: 32px;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        .promo-text p {
-            margin-bottom: 25px;
-            font-size: 18px;
-        }
-        
-        .promo-timer {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .timer-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .timer-item {
-            background-color: var(--primary);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            min-width: 60px;
-        }
-        
-        .timer-number {
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1;
-        }
-        
-        .timer-label {
-            font-size: 12px;
-            text-transform: uppercase;
-        }
-        
-        .promo-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        
-        .promo-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Carrusel de producto */
-        .product-carousel-section {
-            margin: 60px 0;
-        }
-        
-        .product-carousel {
-            display: flex;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            height: 500px;
-        }
-        
-        .product-display {
-            flex: 1;
-            background-color: #f9f9f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .product-display img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s;
-        }
-        
-        .product-display:hover img {
-            transform: scale(1.03);
-        }
-        
-        .product-with-model {
-            flex: 1;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
-        }
-        
-        .product-with-model img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 5px;
-        }
-        
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ddd;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .carousel-dot.active {
-            background-color: var(--primary);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-            margin-top: 60px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-family: var(--font-heading);
-            font-size: 22px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            font-size: 18px;
-            transition: all 0.3s;
-        }
-        
-        .social-icons a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: #aaa;
-        }
-        
-        /* Animaciones */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
-            }
-        }
-        
-        /* Responsive */
+        /* Mejoras de UX para móviles */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
+            .banner-content {
+                animation: scrollBanner 20s linear infinite;
             }
             
-            nav ul {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 5px 10px;
-            }
-            
-            .banner h1 {
-                font-size: 32px;
-            }
-            
-            .banner-text, .promo-text {
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-            
-            .product-carousel {
-                flex-direction: column;
-                height: auto;
-            }
-            
-            .product-display, .product-with-model {
-                height: 300px;
+            .product-image {
+                height: 200px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Banner dinámico con efectos -->
+    <div class="dynamic-banner">
+        <div class="banner-content">
+            <span class="mx-8 text-lg font-medium">
+                <i class="fas fa-shipping-fast mr-2"></i> Envíos a toda Cuba
+            </span>
+            <span class="mx-8 text-lg font-medium">
+                <i class="fas fa-shield-alt mr-2"></i> Compra 100% segura
+            </span>
+            <span class="mx-8 text-lg font-medium">
+                <i class="fas fa-gift mr-2"></i> Ofertas exclusivas
+            </span>
+            <span class="mx-8 text-lg font-medium">
+                <i class="fas fa-tag mr-2"></i> Carteras desde $3500
+            </span>
+            <span class="mx-8 text-lg font-medium">
+                <i class="fas fa-star mr-2"></i> Productos de calidad
+            </span>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-crown"></i>
-                <span>Moda Caribe</span>
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="mr-3">
+                        <img src="https://i.postimg.cc/HL23TTq8/cartera_1.png" alt="Logo Velora" class="w-12 h-12 rounded-full object-cover border-2 border-purple-100">
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold" style="color: var(--primary-color);">VELORA</h1>
+                        <p class="text-xs text-gray-500">Catálogo Online</p>
+                    </div>
+                </div>
+                
+                <!-- Navegación -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="font-medium hover:text-purple-600 transition">Inicio</a>
+                    <a href="#carteras" class="font-medium hover:text-purple-600 transition">Carteras</a>
+                    <a href="#ropa" class="font-medium hover:text-purple-600 transition">Ropa</a>
+                    <a href="#accesorios" class="font-medium hover:text-purple-600 transition">Accesorios</a>
+                    <a href="#ofertas" class="font-medium hover:text-purple-600 transition">Ofertas</a>
+                </nav>
+                
+                <!-- Carrito y acciones -->
+                <div class="flex items-center space-x-6">
+                    <div class="cart-indicator">
+                        <i class="fas fa-shopping-cart text-xl" style="color: var(--primary-color);"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <button class="btn-primary hidden md:block">
+                        <i class="fas fa-whatsapp mr-2"></i> Pedir por WhatsApp
+                    </button>
+                    <button id="menuToggle" class="md:hidden text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="#promociones">Promociones</a></li>
-                    <li><a href="admin.html" target="_blank">admin</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="#" class="cart-icon"><i class="fas fa-shopping-bag"></i> <span class="cart-count">3</span></a></li>
-                </ul>
-            </nav>
+            
+            <!-- Menú móvil -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pt-4 border-t border-gray-100">
+                <div class="flex flex-col space-y-4">
+                    <a href="#inicio" class="font-medium hover:text-purple-600 transition">Inicio</a>
+                    <a href="#carteras" class="font-medium hover:text-purple-600 transition">Carteras</a>
+                    <a href="#ropa" class="font-medium hover:text-purple-600 transition">Ropa</a>
+                    <a href="#accesorios" class="font-medium hover:text-purple-600 transition">Accesorios</a>
+                    <a href="#ofertas" class="font-medium hover:text-purple-600 transition">Ofertas</a>
+                    <button class="btn-primary mt-2">
+                        <i class="fas fa-whatsapp mr-2"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Banner dinámico -->
-    <section class="banner" id="inicio">
-        <div class="container banner-content">
-            <div class="banner-text">
-                <h1>Elegancia que Define tu Estilo</h1>
-                <p>Descubre nuestra exclusiva colección de carteras, diseñadas para la mujer moderna que valora la calidad y el diseño. ¡Enviamos a toda Cuba!</p>
-                <a href="#productos" class="cta-button pulse">Ver Colección <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="banner-image">
-                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Cartera elegante">
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de productos -->
-    <section id="productos" class="container">
-        <h2 class="section-title">Nuestras Carteras Destacadas</h2>
-        
-        <div class="products-grid">
-            <!-- Producto 1 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cartera de cuero marrón">
-                    <div class="product-badge">Más Vendida</div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Cartera Elegante de Cuero</h3>
-                    <p class="product-description">Cartera de cuero genuino con múltiples compartimentos. Ideal para el día a día, combina funcionalidad y estilo.</p>
-                    <div class="product-price">$45.99</div>
-                    <div class="product-buttons">
-                        <button class="btn-whatsapp" onclick="contactarWhatsApp('Cartera Elegante de Cuero')">
-                            <i class="fab fa-whatsapp"></i> Comprar
+    <!-- Hero Section -->
+    <section id="inicio" class="py-12 md:py-20" style="background: linear-gradient(135deg, var(--light-color) 0%, #ffffff 100%);">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Texto hero -->
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <div class="trust-badge mb-6">
+                        <i class="fas fa-check-circle mr-2"></i> Más de 500 clientes satisfechos
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--dark-color);">
+                        Descubre tu estilo con <span style="color: var(--primary-color);">Velora</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                        Las mejores prendas y artículos con diseños exclusivos. Carteras, ropa y accesorios que destacan tu personalidad.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="btn-primary pulse-animation">
+                            <i class="fas fa-shopping-bag mr-2"></i> Ver Colección
                         </button>
-                        <button class="btn-details" onclick="verDetalles(1)">Ver Detalles</button>
+                        <a href="#carteras" class="px-8 py-4 border-2 border-purple-200 text-purple-700 font-medium rounded-full hover:bg-purple-50 transition text-center">
+                            Carteras desde $3,500
+                        </a>
+                    </div>
+                    
+                    <!-- Contador social proof -->
+                    <div class="mt-12 grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="counter" data-target="500">0</div>
+                            <p class="text-sm text-gray-500 mt-1">Productos vendidos</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="counter" data-target="98">0</div>
+                            <p class="text-sm text-gray-500 mt-1">% Clientes satisfechos</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="counter" data-target="24">0</div>
+                            <p class="text-sm text-gray-500 mt-1">Horas de envío</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-          <!-- Producto: cartera elegante de cuero -->
-<div class="product-card">
-    <div class="product-image">
-        <img src="https://i.postimg.cc/ZqcjJJGZ/cartera_2.png" alt="cartera elegante de cuero">
-        <div class="product-badge" style="background-color: #28a745;">Nuevo</div>
-    </div>
-    <div class="product-info">
-        <h3 class="product-title">cartera elegante de cuero</h3>
-        <p class="product-description">cartera de cuero </p>
-        <div class="product-price">$4999.99</div>
-        <div class="product-buttons">
-            <button class="btn-whatsapp" onclick="contactarWhatsApp('cartera elegante de cuero')">
-                <i class="fab fa-whatsapp"></i> Comprar
-            </button>
-            <button class="btn-details" onclick="verDetalles()">Ver Detalles</button>
-        </div>
-    </div>
-</div>
-            
-            <!-- Producto 3 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cartera de mano roja">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Cartera de Mano Roja</h3>
-                    <p class="product-description">Elegante cartera de mano en vibrante color rojo. Con cremallera y espacio suficiente para tus esenciales.</p>
-                    <div class="product-price">$32.75</div>
-                    <div class="product-buttons">
-                        <button class="btn-whatsapp" onclick="contactarWhatsApp('Cartera de Mano Roja')">
-                            <i class="fab fa-whatsapp"></i> Comprar
-                        </button>
-                        <button class="btn-details" onclick="verDetalles(3)">Ver Detalles</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección promocional -->
-    <section class="promo-section" id="promociones">
-        <div class="container promo-content">
-            <div class="promo-text">
-                <h2>¡Oferta Especial por Tiempo Limitado!</h2>
-                <p>Compra 2 carteras y obtén un 20% de descuento en tu compra total. Además, envío gratuito a toda Cuba en pedidos superiores a $50.</p>
-                <p>Aprovecha esta promoción antes de que expire. ¡No dejes pasar esta oportunidad!</p>
                 
-                <div class="promo-timer">
-                    <div class="timer-title">La oferta termina en:</div>
-                    <div class="timer">
-                        <div class="timer-item">
-                            <div class="timer-number" id="days">05</div>
-                            <div class="timer-label">Días</div>
+                <!-- Imagen hero con efecto flotante -->
+                <div class="md:w-1/2 flex justify-center fade-in">
+                    <div class="relative">
+                        <div class="absolute -top-6 -left-6 w-64 h-64 rounded-full opacity-10" style="background: var(--primary-color);"></div>
+                        <div class="absolute -bottom-6 -right-6 w-64 h-64 rounded-full opacity-10" style="background: var(--secondary-color);"></div>
+                        
+                        <div class="relative float-animation">
+                            <img src="https://i.postimg.cc/HL23TTq8/cartera_1.png" alt="Cartera Velora" class="rounded-2xl shadow-2xl w-full max-w-md">
                         </div>
-                        <div class="timer-item">
-                            <div class="timer-number" id="hours">12</div>
-                            <div class="timer-label">Horas</div>
-                        </div>
-                        <div class="timer-item">
-                            <div class="timer-number" id="minutes">45</div>
-                            <div class="timer-label">Min</div>
-                        </div>
-                        <div class="timer-item">
-                            <div class="timer-number" id="seconds">30</div>
-                            <div class="timer-label">Seg</div>
+                        
+                        <!-- Badge flotante -->
+                        <div class="absolute -top-4 -right-4 bg-white rounded-full shadow-lg p-4">
+                            <div class="text-center">
+                                <div class="text-lg font-bold" style="color: var(--primary-color);">$3,500</div>
+                                <div class="text-xs text-gray-500">Desde</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="promo-image">
-                <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Promoción carteras">
+        </div>
+    </section>
+
+    <!-- Sección de Carteras -->
+    <section id="carteras" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--dark-color);">
+                    Carteras de <span style="color: var(--primary-color);">Mujer</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Diseños exclusivos que combinan estilo y funcionalidad. Perfectas para complementar cualquier outfit.
+                </p>
+            </div>
+            
+            <!-- Filtros de categorías -->
+            <div class="flex flex-wrap justify-center gap-4 mb-10 fade-in">
+                <button class="px-6 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition active">Todas</button>
+                <button class="px-6 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition">Elegantes</button>
+                <button class="px-6 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition">Casuales</button>
+                <button class="px-6 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition">De fiesta</button>
+            </div>
+            
+            <!-- Grid de productos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Producto 1 -->
+                <div class="neuro-card product-card shine-effect fade-in">
+                    <div class="relative overflow-hidden">
+                        <img src="https://i.postimg.cc/ZqcjJJGZ/cartera_2.png" alt="Cartera elegante" class="product-image">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">NUEVO</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cartera Elegante de Cuero</h3>
+                        <p class="text-gray-600 text-sm mb-4">Perfecta para ocasiones especiales. Diseño sofisticado con detalles en dorado.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold" style="color: var(--primary-color);">$3,500</div>
+                            <button class="add-to-cart bg-purple-100 text-purple-700 hover:bg-purple-200 px-4 py-2 rounded-full font-medium transition" data-id="1" data-name="Cartera Elegante de Cuero" data-price="3500" data-image="https://i.postimg.cc/ZqcjJJGZ/cartera_2.png">
+                                <i class="fas fa-cart-plus mr-2"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="neuro-card product-card shine-effect fade-in">
+                    <div class="relative overflow-hidden">
+                        <img src="https://i.postimg.cc/s2cK33kF/cartera_3.png" alt="Cartera casual" class="product-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cartera Casual Multicolor</h3>
+                        <p class="text-gray-600 text-sm mb-4">Ideal para el día a día. Espaciosa y con múltiples compartimentos.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold" style="color: var(--primary-color);">$3,800</div>
+                            <button class="add-to-cart bg-purple-100 text-purple-700 hover:bg-purple-200 px-4 py-2 rounded-full font-medium transition" data-id="2" data-name="Cartera Casual Multicolor" data-price="3800" data-image="https://i.postimg.cc/s2cK33kF/cartera_3.png">
+                                <i class="fas fa-cart-plus mr-2"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="neuro-card product-card shine-effect fade-in">
+                    <div class="relative overflow-hidden">
+                        <img src="https://i.postimg.cc/jjKZVDFt/cartera_4.png" alt="Cartera de fiesta" class="product-image">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">OFERTA</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cartera de Fiesta Brillante</h3>
+                        <p class="text-gray-600 text-sm mb-4">Brilla en la noche. Con lentejuelas y diseño compacto para tus essentials.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="text-2xl font-bold mr-2" style="color: var(--primary-color);">$4,200</div>
+                                <div class="text-sm text-gray-400 line-through">$4,800</div>
+                            </div>
+                            <button class="add-to-cart bg-purple-100 text-purple-700 hover:bg-purple-200 px-4 py-2 rounded-full font-medium transition" data-id="3" data-name="Cartera de Fiesta Brillante" data-price="4200" data-image="https://i.postimg.cc/jjKZVDFt/cartera_4.png">
+                                <i class="fas fa-cart-plus mr-2"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Producto 4 -->
+                <div class="neuro-card product-card shine-effect fade-in">
+                    <div class="relative overflow-hidden">
+                        <img src="https://i.postimg.cc/wBH0K1bZ/cartera_6.png" alt="Cartera moderna" class="product-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cartera Moderna Minimalista</h3>
+                        <p class="text-gray-600 text-sm mb-4">Diseño limpio y contemporáneo. Hecha con materiales de alta calidad.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold" style="color: var(--primary-color);">$3,600</div>
+                            <button class="add-to-cart bg-purple-100 text-purple-700 hover:bg-purple-200 px-4 py-2 rounded-full font-medium transition" data-id="4" data-name="Cartera Moderna Minimalista" data-price="3600" data-image="https://i.postimg.cc/wBH0K1bZ/cartera_6.png">
+                                <i class="fas fa-cart-plus mr-2"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Llamada a la acción -->
+            <div class="text-center mt-12 fade-in">
+                <button class="btn-primary px-10 py-4">
+                    <i class="fas fa-eye mr-2"></i> Ver Todas las Carteras
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Carrusel de producto destacado -->
-    <section class="product-carousel-section container">
-        <h2 class="section-title">Vista Detallada del Producto</h2>
-        
-        <div class="product-carousel">
-            <div class="product-display">
-                <img id="carousel-product" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" alt="Cartera de cuero">
+    <!-- Sección de Ropa -->
+    <section id="ropa" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--dark-color);">
+                    Prendas de <span style="color: var(--secondary-color);">Vestir</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Estilo y comodidad para cada ocasión. Encuentra las prendas que mejor se adaptan a tu personalidad.
+                </p>
             </div>
-            <div class="product-with-model">
-                <img id="carousel-model" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Modelo con cartera">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Imagen de ropa -->
+                <div class="fade-in">
+                    <div class="relative">
+                        <img src="https://i.postimg.cc/wBgWLzL5/muchachapescador.png" alt="Prenda casual" class="rounded-2xl shadow-2xl w-full">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs">
+                            <div class="text-lg font-bold mb-2" style="color: var(--secondary-color);">Estilo Casual</div>
+                            <p class="text-sm text-gray-600">Perfecto para el día a día, combinando comodidad y tendencia.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Descripción de ropa -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6" style="color: var(--dark-color);">Moda que se adapta a ti</h3>
+                    <p class="text-gray-600 mb-6">
+                        En Velora entendemos que la moda es una expresión personal. Por eso seleccionamos prendas que no solo siguen las tendencias, sino que también priorizan la calidad y el confort.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1">
+                                <i class="fas fa-check-circle text-lg" style="color: var(--secondary-color);"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Materiales de calidad</h4>
+                                <p class="text-gray-600 text-sm">Telas duraderas y agradables al tacto.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1">
+                                <i class="fas fa-check-circle text-lg" style="color: var(--secondary-color);"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Diseños exclusivos</h4>
+                                <p class="text-gray-600 text-sm">Prendas únicas que destacan tu personalidad.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1">
+                                <i class="fas fa-check-circle text-lg" style="color: var(--secondary-color);"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Variedad de tallas</h4>
+                                <p class="text-gray-600 text-sm">Para que encuentres la prenda perfecta para ti.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary">
+                        <i class="fas fa-tshirt mr-2"></i> Ver Colección de Ropa
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Segunda imagen de ropa -->
+            <div class="mt-16 fade-in">
+                <div class="relative max-w-3xl mx-auto">
+                    <img src="https://i.postimg.cc/Dz6xcNc7/muchachashort4puertas.png" alt="Prenda deportiva" class="rounded-2xl shadow-2xl w-full">
+                    <div class="absolute -top-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs">
+                        <div class="text-lg font-bold mb-2" style="color: var(--accent-color);">Estilo Deportivo</div>
+                        <p class="text-sm text-gray-600">Para mantenerte activa sin sacrificar el estilo.</p>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="carousel-controls">
-            <div class="carousel-dot active" onclick="changeCarousel(0)"></div>
-            <div class="carousel-dot" onclick="changeCarousel(1)"></div>
-            <div class="carousel-dot" onclick="changeCarousel(2)"></div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--dark-color);">
+                    Lo que dicen nuestras <span style="color: var(--primary-color);">clientas</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Más de 500 clientas satisfechas confían en Velora para encontrar las prendas y accesorios perfectos.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="neuro-card p-8 fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">María González</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Mi cartera de Velora es lo mejor que he comprado. La calidad es excepcional y recibo cumplidos cada vez que salgo."
+                    </p>
+                </div>
+                
+                <!-- Testimonio 2 -->
+                <div class="neuro-card p-8 fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-pink-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Laura Martínez</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "El proceso de compra fue súper fácil y el envío llegó antes de lo esperado. Definitivamente volveré a comprar."
+                    </p>
+                </div>
+                
+                <!-- Testimonio 3 -->
+                <div class="neuro-card p-8 fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-orange-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Ana Rodríguez</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "La ropa que compré en Velora es de excelente calidad y muy cómoda. Los precios son justos para la calidad que ofrecen."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-16" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in">
+                ¿Lista para descubrir tu estilo con Velora?
+            </h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto opacity-90 fade-in">
+                Únete a nuestras clientas satisfechas y encuentra las prendas y accesorios que mejor te representan.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6 fade-in">
+                <button class="btn-primary bg-white text-purple-700 hover:bg-gray-100 px-10 py-4">
+                    <i class="fas fa-shopping-bag mr-2"></i> Comprar Ahora
+                </button>
+                <button id="whatsappBtn" class="px-10 py-4 bg-green-500 text-white font-bold rounded-full hover:bg-green-600 transition shadow-lg">
+                    <i class="fab fa-whatsapp mr-2"></i> Pedir por WhatsApp
+                </button>
+            </div>
+            
+            <!-- Garantías -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+                <div class="fade-in">
+                    <div class="text-3xl mb-2">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h4 class="font-bold mb-1">Envío Rápido</h4>
+                    <p class="text-sm opacity-80">24-48 horas en La Habana</p>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="text-3xl mb-2">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="font-bold mb-1">Compra Segura</h4>
+                    <p class="text-sm opacity-80">Pago al recibir</p>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="text-3xl mb-2">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h4 class="font-bold mb-1">Cambios Fáciles</h4>
+                    <p class="text-sm opacity-80">7 días para cambiar</p>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="text-3xl mb-2">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4 class="font-bold mb-1">Soporte Personal</h4>
+                    <p class="text-sm opacity-80">Asesoría de estilo</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contacto">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Moda Caribe</h3>
-                    <p>Tu tienda de confianza para carteras y accesorios de moda en Cuba. Calidad y estilo al mejor precio.</p>
-                    <div class="social-icons">
-                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" onclick="contactarWhatsApp('Consulta general')"><i class="fab fa-whatsapp"></i></a>
+    <footer class="py-12 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo y descripción -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.postimg.cc/HL23TTq8/cartera_1.png" alt="Logo Velora" class="w-10 h-10 rounded-full object-cover mr-3">
+                        <div>
+                            <h3 class="text-xl font-bold">VELORA</h3>
+                            <p class="text-xs text-gray-400">Catálogo Online</p>
+                        </div>
                     </div>
+                    <p class="text-gray-400 text-sm">
+                        Las mejores prendas y artículos con diseños exclusivos para mujeres que buscan estilo y calidad.
+                    </p>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#productos">Productos</a></li>
-                        <li><a href="#promociones">Promociones</a></li>
-                        <li><a href="catalogo.html" target="_blank">Catálogo Completo</a></li>
+                <!-- Enlaces -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Categorías</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#carteras" class="text-gray-400 hover:text-white transition">Carteras</a></li>
+                        <li><a href="#ropa" class="text-gray-400 hover:text-white transition">Ropa</a></li>
+                        <li><a href="#accesorios" class="text-gray-400 hover:text-white transition">Accesorios</a></li>
+                        <li><a href="#ofertas" class="text-gray-400 hover:text-white transition">Ofertas</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone"></i> +53 56382909</li>
-                        <li><i class="fab fa-whatsapp"></i> WhatsApp: +53 56382909</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Envíos a toda Cuba</li>
-                        <li><i class="fas fa-clock"></i> Atención: Lunes a Sábado, 9am - 6pm</li>
+                <!-- Información -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Información</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Envíos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Preguntas Frecuentes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contacto</a></li>
                     </ul>
+                </div>
+                
+                <!-- Contacto -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-purple-400"></i>
+                            <span class="text-gray-400">+53 123 456 789</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-green-400"></i>
+                            <span class="text-gray-400">WhatsApp</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-yellow-400"></i>
+                            <span class="text-gray-400">info@velora.com</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Redes sociales -->
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-purple-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-400 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2023 Moda Caribe. Todos los derechos reservados.</p>
-                <p>Diseñado con principios de neurodiseño para maximizar tu experiencia de compra.</p>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2023 Velora - Catálogo Online. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-hidden">
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold" style="color: var(--primary-color);">Tu Carrito</h3>
+                    <button id="closeCartModal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                </div>
+            </div>
+            
+            <div id="cartItems" class="p-6 overflow-y-auto max-h-[300px]">
+                <p class="text-center text-gray-500">Tu carrito está vacío</p>
+            </div>
+            
+            <div class="p-6 border-t border-gray-200">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-lg font-bold">Total:</span>
+                    <span id="cartTotal" class="text-2xl font-bold" style="color: var(--primary-color);">$0</span>
+                </div>
+                
+                <button id="checkoutBtn" class="btn-primary w-full py-4 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <i class="fas fa-whatsapp mr-2"></i> Completar Pedido por WhatsApp
+                </button>
+                
+                <p class="text-center text-gray-500 text-sm mt-4">
+                    <i class="fas fa-lock mr-1"></i> Pago seguro al recibir
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificación de producto añadido -->
+    <div id="notification" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-xl z-50 transform translate-y-full transition-transform duration-300">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-3 text-xl"></i>
+            <div>
+                <p class="font-bold">¡Producto añadido!</p>
+                <p id="notificationText" class="text-sm">Se ha añadido al carrito</p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Datos de productos para el carrusel
-        const carouselProducts = [
-            {
-                productImg: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80',
-                modelImg: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80',
-                title: 'Cartera Elegante de Cuero'
-            },
-            {
-                productImg: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80',
-                modelImg: 'https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
-                title: 'Bolso Bandolera Negro'
-            },
-            {
-                productImg: 'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80',
-                modelImg: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
-                title: 'Cartera de Mano Roja'
-            }
-        ];
+        // Variables globales
+        let cart = JSON.parse(localStorage.getItem('veloraCart')) || [];
+        let whatsappNumber = "535123456789"; // Número de WhatsApp para pedidos
         
-        let currentCarouselIndex = 0;
+        // Elementos del DOM
+        const cartModal = document.getElementById('cartModal');
+        const closeCartModalBtn = document.getElementById('closeCartModal');
+        const cartItemsContainer = document.getElementById('cartItems');
+        const cartTotalElement = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const cartCountElement = document.querySelector('.cart-count');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const whatsappBtn = document.getElementById('whatsappBtn');
         
-        // Función para cambiar el carrusel
-        function changeCarousel(index) {
-            currentCarouselIndex = index;
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Actualizar carrito UI
+            updateCartUI();
             
-            // Actualizar imágenes
-            document.getElementById('carousel-product').src = carouselProducts[index].productImg;
-            document.getElementById('carousel-model').src = carouselProducts[index].modelImg;
+            // Configurar eventos
+            setupEventListeners();
             
-            // Actualizar puntos de control
-            const dots = document.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
+            // Configurar animaciones de scroll
+            setupScrollAnimations();
+            
+            // Iniciar contadores
+            startCounters();
+            
+            // Configurar productos
+            setupProducts();
+        });
+        
+        // Configurar eventos
+        function setupEventListeners() {
+            // Menú móvil
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Cerrar menú al hacer clic en enlace
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Carrito modal
+            document.querySelector('.cart-indicator').addEventListener('click', function() {
+                cartModal.classList.remove('hidden');
+            });
+            
+            closeCartModalBtn.addEventListener('click', function() {
+                cartModal.classList.add('hidden');
+            });
+            
+            cartModal.addEventListener('click', function(e) {
+                if (e.target === cartModal) {
+                    cartModal.classList.add('hidden');
                 }
             });
-        }
-        
-        // Función para contactar por WhatsApp
-        function contactarWhatsApp(producto) {
-            const telefono = '5356382909';
-            const mensaje = `¡Hola! Estoy interesado/a en el producto: ${producto}. Me gustaría obtener más información y realizar la compra.`;
-            const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-            window.open(url, '_blank');
-        }
-        
-        // Función para ver detalles (simulación)
-        function verDetalles(productId) {
-            alert(`Mostrando detalles del producto ${productId}. En una implementación completa, esto abriría un modal o página con información detallada.`);
-        }
-        
-        // Temporizador para la promoción
-        function updateTimer() {
-            const daysElement = document.getElementById('days');
-            const hoursElement = document.getElementById('hours');
-            const minutesElement = document.getElementById('minutes');
-            const secondsElement = document.getElementById('seconds');
             
-            // Fecha objetivo (3 días desde ahora)
-            const targetDate = new Date();
-            targetDate.setDate(targetDate.getDate() + 5);
-            targetDate.setHours(23, 59, 59, 999);
+            // Botón de WhatsApp
+            whatsappBtn.addEventListener('click', function() {
+                sendWhatsAppMessage();
+            });
             
-            function update() {
-                const now = new Date();
-                const difference = targetDate - now;
-                
-                if (difference <= 0) {
-                    // La promoción ha expirado
-                    daysElement.textContent = '00';
-                    hoursElement.textContent = '00';
-                    minutesElement.textContent = '00';
-                    secondsElement.textContent = '00';
-                    return;
-                }
-                
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-                
-                daysElement.textContent = days.toString().padStart(2, '0');
-                hoursElement.textContent = hours.toString().padStart(2, '0');
-                minutesElement.textContent = minutes.toString().padStart(2, '0');
-                secondsElement.textContent = seconds.toString().padStart(2, '0');
-            }
-            
-            update();
-            setInterval(update, 1000);
-        }
-        
-        // Cambiar automáticamente el carrusel cada 5 segundos
-        function startAutoCarousel() {
-            setInterval(() => {
-                currentCarouselIndex = (currentCarouselIndex + 1) % carouselProducts.length;
-                changeCarousel(currentCarouselIndex);
-            }, 5000);
-        }
-        
-        // Inicializar funciones cuando la página cargue
-        document.addEventListener('DOMContentLoaded', function() {
-            updateTimer();
-            startAutoCarousel();
+            checkoutBtn.addEventListener('click', function() {
+                sendWhatsAppMessage();
+            });
             
             // Smooth scroll para enlaces internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -961,10 +914,245 @@
                     }
                 });
             });
-        });
+        }
+        
+        // Configurar productos
+        function setupProducts() {
+            // Añadir productos al carrito
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const product = {
+                        id: this.getAttribute('data-id'),
+                        name: this.getAttribute('data-name'),
+                        price: parseInt(this.getAttribute('data-price')),
+                        image: this.getAttribute('data-image'),
+                        quantity: 1
+                    };
+                    
+                    addToCart(product);
+                    
+                    // Efecto visual en el botón
+                    this.innerHTML = '<i class="fas fa-check mr-2"></i> Añadido';
+                    this.style.backgroundColor = '#10b981';
+                    this.style.color = 'white';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-cart-plus mr-2"></i> Añadir';
+                        this.style.backgroundColor = '';
+                        this.style.color = '';
+                    }, 1500);
+                });
+            });
+        }
+        
+        // Añadir producto al carrito
+        function addToCart(product) {
+            // Verificar si el producto ya está en el carrito
+            const existingItemIndex = cart.findIndex(item => item.id === product.id);
+            
+            if (existingItemIndex !== -1) {
+                // Incrementar cantidad si ya existe
+                cart[existingItemIndex].quantity++;
+            } else {
+                // Añadir nuevo producto
+                cart.push(product);
+            }
+            
+            // Actualizar localStorage
+            localStorage.setItem('veloraCart', JSON.stringify(cart));
+            
+            // Actualizar UI
+            updateCartUI();
+            
+            // Mostrar notificación
+            showNotification(`"${product.name}" añadido al carrito`);
+        }
+        
+        // Actualizar UI del carrito
+        function updateCartUI() {
+            // Actualizar contador
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountElement.textContent = totalItems;
+            
+            // Actualizar lista de productos en el modal
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-center text-gray-500">Tu carrito está vacío</p>';
+                checkoutBtn.disabled = true;
+            } else {
+                let cartHTML = '';
+                let totalPrice = 0;
+                
+                cart.forEach((item, index) => {
+                    totalPrice += item.price * item.quantity;
+                    
+                    cartHTML += `
+                        <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100 last:border-b-0">
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden mr-4">
+                                    <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">${item.name}</h4>
+                                    <p class="text-sm text-gray-500">$${item.price.toLocaleString()}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="flex items-center mr-4">
+                                    <button class="decrease-quantity w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center" data-index="${index}">-</button>
+                                    <span class="mx-2 font-bold">${item.quantity}</span>
+                                    <button class="increase-quantity w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center" data-index="${index}">+</button>
+                                </div>
+                                
+                                <button class="remove-item text-red-500" data-index="${index}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItemsContainer.innerHTML = cartHTML;
+                cartTotalElement.textContent = `$${totalPrice.toLocaleString()}`;
+                checkoutBtn.disabled = false;
+                
+                // Añadir eventos a los botones del carrito
+                document.querySelectorAll('.decrease-quantity').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        updateCartQuantity(index, cart[index].quantity - 1);
+                    });
+                });
+                
+                document.querySelectorAll('.increase-quantity').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        updateCartQuantity(index, cart[index].quantity + 1);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        removeFromCart(index);
+                    });
+                });
+            }
+        }
+        
+        // Actualizar cantidad de un producto en el carrito
+        function updateCartQuantity(index, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(index);
+                return;
+            }
+            
+            cart[index].quantity = newQuantity;
+            localStorage.setItem('veloraCart', JSON.stringify(cart));
+            updateCartUI();
+            showNotification('Carrito actualizado');
+        }
+        
+        // Eliminar producto del carrito
+        function removeFromCart(index) {
+            const removedProduct = cart[index];
+            cart.splice(index, 1);
+            localStorage.setItem('veloraCart', JSON.stringify(cart));
+            updateCartUI();
+            showNotification(`"${removedProduct.name}" eliminado del carrito`);
+        }
+        
+        // Mostrar notificación
+        function showNotification(message) {
+            notificationText.textContent = message;
+            notification.classList.remove('translate-y-full');
+            
+            setTimeout(() => {
+                notification.classList.add('translate-y-full');
+            }, 3000);
+        }
+        
+        // Enviar mensaje por WhatsApp
+        function sendWhatsAppMessage() {
+            if (cart.length === 0) {
+                showNotification('Añade productos al carrito primero');
+                return;
+            }
+            
+            let message = `¡Hola! Me interesa hacer un pedido en Velora:\n\n`;
+            
+            let totalPrice = 0;
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} x${item.quantity} - $${(item.price * item.quantity).toLocaleString()}\n`;
+                totalPrice += item.price * item.quantity;
+            });
+            
+            message += `\nTotal: $${totalPrice.toLocaleString()}\n\n`;
+            message += `Por favor, confirmen disponibilidad y forma de pago.`;
+            
+            // Codificar mensaje para URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Opcional: vaciar carrito después de enviar
+            // cart = [];
+            // localStorage.setItem('veloraCart', JSON.stringify(cart));
+            // updateCartUI();
+        }
+        
+        // Configurar animaciones de scroll
+        function setupScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
+        // Iniciar contadores animados
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                // Iniciar cuando el contador sea visible
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(counter);
+            });
+        }
     </script>
 </body>
-
 </html>
 
 
